@@ -1,0 +1,262 @@
+/* this file will be extracted to main dist folder and is imported in index.html */
+/* This file is for setting global styles  */
+@import 'variables';
+@import '../../../../node_modules/@angular/material/core/theming/prebuilt/indigo-pink.css';
+@import '../../../../node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.css';
+@import 'typography';
+
+html, body,
+ks-app,
+md-sidenav-container {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fcfcfc;
+}
+
+//
+// Disable outline on Chrome
+//
+:focus {
+  outline: none;
+}
+
+.ks-body {
+  margin:0;
+  display: flex;
+  height:100%;
+  min-height:100%;
+  flex-direction: column;
+}
+
+ks-main-page,
+.ks-view {
+  position: relative;
+  height:100%;
+  //min-height:100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  flex: 1 1 100%;
+}
+
+.ks-page-toolbar {
+  color: $page-toolbar-color !important;
+  //z-index: 3;
+
+  &.ks-brand {
+    background: $page-toolbar-background-brand !important;
+  }
+
+  &.ks-edit-mode {
+    background: $page-toolbar-background-edit !important;
+  }
+
+  flex-shrink: 0;
+}
+
+md-toolbar.ks-page-toolbar {
+  .md-button:not(.md-raised),
+  .md-button:not([disabled]) md-icon,
+  md-icon {
+    // TODO: ERIC: variable
+    color: rgba(255, 255, 255, 0.87);
+  }
+}
+
+.ks-row {
+  flex-direction: row;
+}
+
+.ks-column {
+  flex-direction: column;
+}
+
+.ks-container-vertical {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  max-height: calc(100vh - 0px);
+}
+
+.ks-container-vertical-within-tab {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+  max-height: calc(100vh - 60px);
+}
+
+.ks-container {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 0 100%;
+
+  @media only screen and (max-width: $layout-breakpoint-lg) {
+    padding: 8px 8px 32px;
+  }
+
+  @media only screen and (min-width: $layout-breakpoint-lg) {
+    min-width: $layout-breakpoint-lg - 4*$baseline-grid;
+    max-width: $layout-breakpoint-lg - 4*$baseline-grid;
+    padding: 8px;
+    margin: 0 auto; // center
+  }
+}
+
+.ks-toolbar-container {
+  @media only screen and (min-width: $layout-breakpoint-lg) {
+    min-width: $layout-breakpoint-lg - 4*$baseline-grid;
+    max-width: $layout-breakpoint-lg - 4*$baseline-grid;
+    margin: 0 auto; // center
+  }
+}
+
+.ks-no-shrink {
+  flex-shrink: 0;
+}
+
+.ks-cursor-point {
+  cursor: pointer;
+}
+
+ks-link,
+.ks-link {
+  cursor: pointer;
+  // TODO: ERIC: variable
+  color: #006fb2;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.ks-glow-z1 {
+  box-shadow: 0 4px 10px 1px rgba(0, 0, 0, 0.23),
+  0 1px 1px 0 rgba(0, 0, 0, 0.14),
+  0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.ks-sidenav {
+  width: 308px;
+  min-width: 308px;
+  max-width: 308px;
+
+  box-shadow: 2px 0 1px rgba(0, 0, 0, 0.2);
+  // TODO: ERIC: variable
+  background-color: #f0f0f0;
+}
+
+ks-popup-container {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: row-reverse;
+  align-content: flex-end;
+  align-items: flex-end;
+
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  max-height: calc(100vh - 0px);
+  padding: 8px;
+  z-index: 2;
+
+  @media only screen and (min-width: 0) and (max-width: $layout-breakpoint-sm) {
+    padding: 0;
+    //max-height: calc(100vh - 0px);
+    max-width: calc(100vw - 0px);
+  }
+}
+
+.ks-border-top-light {
+  border-top: solid 1px #ededed;
+}
+
+.ks-border-bottom-light {
+  border-bottom: solid 1px #ededed;
+}
+
+.ks-whiteframe-2 {
+  background-color: #ffffff;
+  color: #000000;
+  margin-bottom: 16px;
+
+  box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+}
+
+.ks-no-errors-spacer {
+  .md-errors-spacer {
+    min-height: 0 !important;
+    display: none;
+  }
+}
+
+.ks-callout {
+  margin: 8px;
+  border-radius: 4px;
+  border: 1px solid #cfcfcf;
+
+  &:not(.ks-xs) {
+    padding: 16px;
+  }
+
+  &.ks-xs {
+    padding: 8px;
+  }
+
+  &.ks-callout-info {
+    background-color: rgb(234, 246, 255);
+    color: #000000;
+  }
+
+  &.ks-callout-warn {
+    background-color: rgb(255, 235, 225);
+    color: #000000;
+  }
+}
+
+.ks-help {
+  margin: 8px;
+  color: blue;
+
+  &:not(.ks-xs) {
+    padding: 16px;
+    font-size: small;
+  }
+
+  &.ks-xs {
+    padding: 8px;
+    font-size: x-small;
+  }
+}
+
+.ks-scrollable {
+  flex: 1 1 auto;
+  display: flex;
+  position: relative;
+
+  overflow-x: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  &.only-x {
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  &.only-y {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.ks-scrollbar-element {
+  flex: 1 1 auto;
+}
+
+.ks-pad-8 {
+  padding: 8px;
+}
