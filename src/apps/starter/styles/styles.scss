@@ -90,9 +90,13 @@ md-toolbar.ks-page-toolbar {
   max-height: calc(100vh - 60px);
 }
 
-.ks-container {
+//
+// Page View Container with max-with
+//
+.ks-page-view-container {
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   flex: 1 0 100%;
 
   @media only screen and (max-width: $layout-breakpoint-lg) {
