@@ -46,10 +46,10 @@ We're also using Protractor for our end-to-end story and Karma for our unit test
 ```bash
 # clone our repo
 # --depth 1 removes all but one .git commit history
-git clone --depth 1 https://github.com/dissoupo/ek-ng2-material-uirouter.git
+git clone --depth 1 https://github.com/dissoupo/ng2-material-uirouter.git
 
 # change directory to our repo
-cd ek-ng2-material-uirouter
+cd ng2-material-uirouter
 
 # install the repo with npm
 npm install

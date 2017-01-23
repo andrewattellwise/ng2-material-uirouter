@@ -1,5 +1,5 @@
 {
-  "name": "ek-ng2-material-uirouter",
+  "name": "ng2-material-uirouter",
   "version": "1.0.0",
   "description": "An Angular 2 Webpack Starter kit featuring Angular 2 (UI-Router, Http, Forms, Services, Tests, E2E, Coverage), Karma, Protractor, Jasmine, Istanbul, TypeScript, and Webpack by AngularClass",
   "keywords": [
@@ -10,7 +10,7 @@
     "typescript"
   ],
   "author": "Denis Issoupov <denis@ekspand.com>",
-  "homepage": "https://github.com/dissoupo/ek-ng2-material-uirouter",
+  "homepage": "https://github.com/dissoupo/ng2-material-uirouter",
   "license": "MIT",
   "scripts": {
     "build:aot:prod": "npm run clean:dist && npm run clean:aot && webpack --config config/webpack.prod.js --progress --profile --bail",
@@ -160,10 +160,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dissoupo/ek-ng2-material-uirouter.git"
+    "url": "https://github.com/dissoupo/ng2-material-uirouter.git"
   },
   "bugs": {
-    "url": "https://github.com/dissoupo/ek-ng2-material-uirouter/issues"
+    "url": "https://github.com/dissoupo/ng2-material-uirouter/issues"
   },
   "engines": {
     "node": ">= 4.2.1",
