@@ -10,7 +10,7 @@ import {AppMainPage} from '../../app-main-page';
   styles: [`
   `],
   template: `
-    <h1>About</h1>
+    <h1 xLarge>About</h1>
     <div>
       TODO: about page
     </div>

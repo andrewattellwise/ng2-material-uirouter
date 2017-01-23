@@ -37,15 +37,14 @@ import {
 import { ENV_PROVIDERS } from './environment';
 // App is our top level component
 import { AppState, InternalStateType } from './app.service';
-
 import { AppMainPage } from './app-main-page';
 import { HomeComponent } from './app-main-page/views/home';
 import { AboutComponent } from './app-main-page/views/about';
-//import { XLargeDirective } from './app-main-page/views/home/x-large';
 import { AppNavigation } from './app-main-page/navigation';
 import { AppToolbar } from './app-main-page/toolbar';
 import { AppQuickPanel } from './app-main-page/quick-panel';
 import { AppComponent } from './app.component';
+import { ExNgComponentsModule } from '../../../components/ng';
 
 import '../styles/styles.scss';
 import '../styles/headings.scss';
@@ -113,6 +112,7 @@ const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FormsModule,
     HttpModule,
     MdIconModule,
+    ExNgComponentsModule,
     MaterialModule.forRoot(),
     FlexLayoutModule.forRoot(),
     PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG),

@@ -4,7 +4,6 @@ import {
 } from '@angular/core';
 
 import { AppState } from '../../../app.service';
-import { XLargeDirective } from './x-large';
 import {AppMainPage} from '../../app-main-page';
 
 @Component({
