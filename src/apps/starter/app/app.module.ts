@@ -35,6 +35,7 @@ import {
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS } from './environment';
+import { UIROUTER_STATES } from './app.routes';
 // App is our top level component
 import { AppState, InternalStateType } from './app.service';
 import { AppMainPage } from './app-main-page';
@@ -43,6 +44,7 @@ import { AboutComponent } from './app-main-page/views/about';
 import { AppNavigation } from './app-main-page/navigation';
 import { AppToolbar } from './app-main-page/toolbar';
 import { AppQuickPanel } from './app-main-page/quick-panel';
+import { AuthPage, SigninComponent, SignupComponent } from './auth-page';
 import { AppComponent } from './app.component';
 import { ExNgComponentsModule } from '../../../components/ng';
 
@@ -105,7 +107,10 @@ const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppNavigation,
     AppQuickPanel,
     AboutComponent,
-    HomeComponent
+    HomeComponent,
+    AuthPage,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [ // import Angular's modules
     BrowserModule,
@@ -117,32 +122,7 @@ const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     FlexLayoutModule.forRoot(),
     PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG),
     UIRouterModule.forRoot({
-      states: [
-        {
-          name: 'app',
-          abstract: true,
-          views : {
-           'main@': { component: AppMainPage },
-           'toolbar@app': { component: AppToolbar },
-           'navigation@app': { component: AppNavigation },
-           'quickPanel@app': { component: AppQuickPanel }
-           }
-        },
-        {
-          name: 'app.about',
-          url: '^/about',
-          views: {
-            'content@app': { component: AboutComponent }
-          },
-        },
-        {
-          name: 'app.home',
-          url: '^/home',
-          views: {
-            'content@app': { component: HomeComponent }
-          },
-        }
-      ],
+      states: UIROUTER_STATES,
       useHash: true,
       otherwise: { state: 'app.home', params: {} },
 //      configClass: MyRootUIRouterConfig

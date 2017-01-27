@@ -1,0 +1,9 @@
+.ks-auth-page {
+  height: 100%;
+  background: url('/assets/img/backgrounds/march.jpg') no-repeat;
+  background-size: cover;
+
+  /deep/ md-card {
+    max-width: 300px;
+  }
+}

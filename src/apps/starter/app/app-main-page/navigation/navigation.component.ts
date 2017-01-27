@@ -30,7 +30,7 @@ import {AppMainPage} from '../app-main-page';
           <a *ngFor="let menu of appMenu"
             md-list-item
             (click)="parent.navContainer?.start?.close()"
-            uiSref="{{menu.route}}"> 
+            uiSref="{{menu.state}}"> 
             <md-icon svgIcon="{{menu.icon}}"></md-icon> {{menu.title}}
           </a>
         </md-list>
@@ -44,17 +44,17 @@ export class AppNavigation implements OnInit {
   appMenu = [
     {
       title: 'Home',
-      route: 'app.home',
+      state: 'app.home',
       icon: 'content:ic_send_24px'
     },
     {
       title: 'About',
-      route: 'app.about',
+      state: 'app.about',
       icon: 'communication:ic_contacts_24px'
     },
     {
-      title: 'Account',
-      route: 'app.account',
+      title: 'Sign in',
+      state: 'auth.signin',
       icon: 'action:ic_settings_24px'
     }
   ];

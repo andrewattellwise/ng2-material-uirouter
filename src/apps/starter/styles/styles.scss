@@ -30,6 +30,7 @@ md-sidenav-container {
 }
 
 ks-main-page,
+ks-auth-page,
 .ks-view {
   position: relative;
   height:100%;
@@ -263,4 +264,12 @@ ks-popup-container {
 
 .ks-pad-8 {
   padding: 8px;
+}
+
+.ks-pad-24 {
+  padding: 24px;
+}
+
+.ks-full-width {
+  width: 100%;
 }
