@@ -4,36 +4,47 @@
       <img fxFlexAlign="auto" md-card-sm-image src="assets/img/logos/ekspand_logo_64x64.svg">
       <h3>Sign in to your account</h3>
     </div>
-    <form>
-      <md-input-container class="ks-full-width">
-        <input md-input placeholder="Email">
+    <form novalidate [formGroup]="signinForm" *ngIf="active">
+      <md-input-container class="ks-full-width ks-input-validation">
+        <input md-input
+               required
+               ksValidate="email"
+               formControlName="email"
+               placeholder="Email">
+        <ks-input-error [ksTarget]="signinForm.controls['email']"></ks-input-error>
       </md-input-container>
-      <md-input-container class="ks-full-width">
-        <input md-input placeholder="Password">
+      <md-input-container class="ks-full-width ks-input-validation">
+        <input md-input
+               required
+               type="password"
+               ksValidate="password"
+               formControlName="password"
+               placeholder="Password">
+        <ks-input-error [ksTarget]="signinForm.controls['password']"></ks-input-error>
       </md-input-container>
-      <md-checkbox>Remember me on this device</md-checkbox>
+
+      <div class="ks-full-width ks-input-validation">
+        <md-checkbox formControlName="rememberMe">Remember me on this device</md-checkbox>
+      </div>
     </form>
   </md-card-content>
   <md-card-actions>
     <div fxLayout="column" fxLayoutAlign="center center" >
-      <button md-raised-button color="accent">Sign in</button>
+      <button md-raised-button
+              type="button"
+              color="accent"
+              (click)="onSubmit()"
+              [disabled]="!signinForm.valid || submitted">Sign in</button>
     </div>
   </md-card-actions>
-  <div fxLayout="row" fxLayoutAlign="space-between center" class="ks-pad-8">
-    <div>
-      <small>Forgot password?</small>
-    </div>
-    <div>
-      <a md-button uiSref="auth.pwd_reset">Reset password</a>
-    </div>
+  <!--
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <small><a md-button uiSref="auth.pwd_reset" color="accent" mdTooltip="Reset password!" mdTooltipPosition="right">Forgot password?</a></small>
   </div>
-  <div fxLayout="column" fxLayoutAlign="space-between center" class="ks-pad-8">
-    <div>
-      <small>Don't have an account?</small>
-    </div>
-    <div>
-      <a md-button uiSref="auth.signup">Sign up</a>
-    </div>
+  -->
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <small><a md-button uiSref="auth.signup" color="primary" mdTooltip="Sign up now!" mdTooltipPosition="right">Don't have an account?</a></small>
   </div>
 </md-card>
+<pre>{{signin | json}}</pre>
 

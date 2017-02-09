@@ -1,5 +1,5 @@
 import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
@@ -46,7 +46,7 @@ import { AppToolbar } from './app-main-page/toolbar';
 import { AppQuickPanel } from './app-main-page/quick-panel';
 import { AuthPage, SigninComponent, SignupComponent } from './auth-page';
 import { AppComponent } from './app.component';
-import { ExNgComponentsModule } from '../../../components/ng';
+import { KsNgComponentsModule } from '../../../components/ng';
 
 import '../styles/styles.scss';
 import '../styles/headings.scss';
@@ -112,21 +112,25 @@ const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SigninComponent,
     SignupComponent
   ],
-  imports: [ // import Angular's modules
+  imports: [
+    // import Angular's modules
     BrowserModule,
-    FormsModule,
+    ReactiveFormsModule,
     HttpModule,
-    MdIconModule,
-    ExNgComponentsModule,
-    MaterialModule.forRoot(),
     FlexLayoutModule.forRoot(),
+    // Material
+    MdIconModule,
+    MaterialModule.forRoot(),
+    // 3rd parties
     PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG),
     UIRouterModule.forRoot({
       states: UIROUTER_STATES,
       useHash: true,
       otherwise: { state: 'app.home', params: {} },
 //      configClass: MyRootUIRouterConfig
-    })
+    }),
+    // Ekspand modules
+    KsNgComponentsModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,

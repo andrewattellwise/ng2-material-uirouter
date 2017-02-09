@@ -4,31 +4,47 @@
       <img fxFlexAlign="auto" md-card-sm-image src="assets/img/logos/ekspand_logo_64x64.svg">
       <h3>Create an account</h3>
     </div>
-    <form>
-      <md-input-container class="ks-full-width">
-        <input md-input placeholder="Name">
+    <form novalidate [formGroup]="signupForm">
+      <md-input-container class="ks-full-width ks-input-validation">
+        <input md-input
+               required
+               ksValidate="name"
+               formControlName="name"
+               placeholder="Name">
+        <ks-input-error [ksTarget]="signupForm.controls['name']"></ks-input-error>
       </md-input-container>
-      <md-input-container class="ks-full-width">
-        <input md-input placeholder="Email">
+      <md-input-container class="ks-full-width ks-input-validation">
+        <input md-input
+               required
+               ksValidate="email"
+               formControlName="email"
+               placeholder="Email">
+        <ks-input-error [ksTarget]="signupForm.controls['email']"></ks-input-error>
       </md-input-container>
-      <md-input-container class="ks-full-width">
-        <input md-input placeholder="Password">
+      <md-input-container class="ks-full-width ks-input-validation">
+        <input md-input
+               required
+               type="password"
+               ksValidate="password"
+               formControlName="password"
+               placeholder="Password">
+        <ks-input-error [ksTarget]="signupForm.controls['password']"></ks-input-error>
       </md-input-container>
-      <md-checkbox>Remember me on this device</md-checkbox>
+      <md-checkbox formControlName="rememberMe">Remember me on this device</md-checkbox>
     </form>
   </md-card-content>
   <md-card-actions>
     <div fxLayout="column" fxLayoutAlign="center center" >
-      <button md-raised-button color="accent">Sign up</button>
+      <button md-raised-button
+              type="button"
+              (click)="onSubmit()"
+              [disabled]="!signupForm.valid || submitted"
+              color="accent">Sign up</button>
     </div>
   </md-card-actions>
-  <div fxLayout="column" fxLayoutAlign="space-between center" class="ks-pad-8">
-    <div>
-      <small>Have an account?</small>
-    </div>
-    <div>
-      <a md-button uiSref="auth.signin">Sign in</a>
-    </div>
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <small><a md-button uiSref="auth.signin" color="primary" mdTooltip="Sign in" mdTooltipPosition="right">Already have an account?</a></small>
   </div>
 </md-card>
+<pre>{{signup | json}}</pre>
 
