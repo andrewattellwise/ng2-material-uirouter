@@ -1,9 +1,8 @@
-import { NgModule, Injectable } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MaterialModule } from '@angular/material';
-
 import { XLargeDirective } from './directives/x-large';
-import { KsValidatorDirective, KsEqualValidatorDirective, KsValidationErrorMessage } from './directives/form-validator';
+import { KsValidateDirective, KsValidateEqualDirective, KsErrorMessageComponent } from './directives/form-validator';
 
 @NgModule({
   imports: [
@@ -11,15 +10,15 @@ import { KsValidatorDirective, KsEqualValidatorDirective, KsValidationErrorMessa
     MaterialModule
   ],
   declarations: [
-    KsValidatorDirective,
-    KsEqualValidatorDirective,
-    KsValidationErrorMessage,
+    KsValidateDirective,
+    KsValidateEqualDirective,
+    KsErrorMessageComponent,
     XLargeDirective
   ],
   exports: [
-    KsValidatorDirective,
-    KsEqualValidatorDirective,
-    KsValidationErrorMessage,
+    KsValidateDirective,
+    KsValidateEqualDirective,
+    KsErrorMessageComponent,
     XLargeDirective
   ]
 })

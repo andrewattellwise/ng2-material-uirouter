@@ -2,13 +2,11 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import {UIRouter} from 'ui-router-ng2';
-import {AppMainPage} from '../../app-main-page';
+import { UIRouter } from 'ui-router-ng2';
+import { AppMainPageComponent } from '../../app-main-page';
 
 @Component({
   selector: 'app-about',
-  styles: [`
-  `],
   template: `
 <div class="ks-page-view-container">
   <h1 xLarge>About</h1>
@@ -36,12 +34,12 @@ import {AppMainPage} from '../../app-main-page';
 export class AboutComponent implements OnInit {
   constructor(
     public uiRouter: UIRouter,
-    private parent: AppMainPage
+    private parent: AppMainPageComponent
   ) {
-    console.log('AboutComponent');
+    // console.log('AboutComponent');
   }
 
   public ngOnInit() {
-    console.log('AboutComponent.ngOnInit');
+    // console.log('AboutComponent.ngOnInit');
   }
 }

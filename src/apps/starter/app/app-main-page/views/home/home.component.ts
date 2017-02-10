@@ -2,24 +2,23 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-
 import { AppState } from '../../../app.service';
-import {AppMainPage} from '../../app-main-page';
+import { AppMainPageComponent } from '../../app-main-page';
 
 @Component({
-  //selector: 'app-home',  // <app-home></app-home>
   styleUrls: [ 'home.component.scss' ],
   templateUrl: 'home.component.html'
 })
 export class HomeComponent implements OnInit {
+
   constructor(
     public appState: AppState,
-    private parent: AppMainPage
+    private parent: AppMainPageComponent
   ) {
-    console.log('HomeComponent');
+    // console.log('HomeComponent');
   }
 
   public ngOnInit() {
-    console.log('HomeComponent.ngOnInit');
+    // console.log('HomeComponent.ngOnInit');
   }
 }

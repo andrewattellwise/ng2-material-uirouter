@@ -3,10 +3,8 @@ import {
   OnInit,
   ViewChild
 } from '@angular/core';
-import {UIRouter} from 'ui-router-ng2';
-import { PerfectScrollbarConfigInterface } from 'angular2-perfect-scrollbar';
-
-import {MdSidenav, MdToolbar, MdSidenavContainer} from '@angular/material';
+import { UIRouter } from 'ui-router-ng2';
+import { MdSidenav, MdSidenavContainer } from '@angular/material';
 
 @Component({
   selector: 'ks-main-page',
@@ -25,13 +23,11 @@ import {MdSidenav, MdToolbar, MdSidenavContainer} from '@angular/material';
   
   <div class="ks-page-content ks-background-light ks-column">
     <div ui-view="toolbar"></div>
-
     <div ui-view="content"
       class="ks-view ks-column ks-scrollable">
-    </div>
-    
+    </div>   
     <!--
-    <div ks-edit-container ks-scroll class="ks-view ks-container ks-column ks-scrollable" ng-show="$ctrl.state.editMode"></div>
+      <div ks-edit-container ks-scroll class="ks-view ks-container ks-column ks-scrollable" ng-show="$ctrl.state.editMode"></div>
     -->
   </div>
   
@@ -46,7 +42,7 @@ import {MdSidenav, MdToolbar, MdSidenavContainer} from '@angular/material';
 </md-sidenav-container>
 `
 })
-export class AppMainPage implements OnInit {
+export class AppMainPageComponent implements OnInit {
 
   @ViewChild('navContainer') public navContainer: MdSidenavContainer;
   @ViewChild('navigation') public navigation: MdSidenav;
@@ -55,10 +51,10 @@ export class AppMainPage implements OnInit {
   constructor(
     public uiRouter: UIRouter
   ) {
-    console.log('AppMainPage');
+    // console.log('AppMainPageComponent');
   }
 
   public ngOnInit() {
-    console.log('AppMainPage.ngOnInit');
+    // console.log('AppMainPageComponent.ngOnInit');
   }
 }

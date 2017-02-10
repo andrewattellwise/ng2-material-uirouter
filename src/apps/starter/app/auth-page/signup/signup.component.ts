@@ -3,30 +3,31 @@ import {
   OnInit
 } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {UIRouter} from 'ui-router-ng2';
+import { UIRouter } from 'ui-router-ng2';
 
-class SignupModel {
-  constructor(
-    public name: string,
-    public email: string,
-    public password: string,
-    public rememberMe?: boolean
-  ) {  }
+interface SignupModel {
+  name: string;
+  email: string;
+  password: string;
+  rememberMe?: boolean;
 }
 
 @Component({
   selector: 'signup',
-  styles: [`
-  `],
   templateUrl: 'signup.component.html'
 })
 export class SignupComponent implements OnInit {
 
-  signup = new SignupModel('', '', '');
-  active = false;
-  submitted = false;
+  public active = false;
+  public submitted = false;
+  public signupForm: FormGroup;
 
-  signupForm: FormGroup;
+  public signup: SignupModel = {
+    name: '',
+    email: '',
+    password: '',
+    rememberMe: false
+  };
 
   constructor(
     public uiRouter: UIRouter,
@@ -35,24 +36,25 @@ export class SignupComponent implements OnInit {
   }
 
   public ngOnInit() {
-    //console.log('SignupComponent.ngOnInit');
+    // console.log('SignupComponent.ngOnInit');
+
     this.signupForm = this.formBuilder.group({
-      'name': [
+      name: [
         this.signup.email, [
           Validators.required
         ]
       ],
-      'email': [
+      email: [
         this.signup.email, [
           Validators.required
         ]
       ],
-      'password': [
+      password: [
         this.signup.password, [
           Validators.required
         ]
       ],
-      'rememberMe': [
+      rememberMe: [
         this.signup.rememberMe, []
       ]
     });
@@ -60,7 +62,7 @@ export class SignupComponent implements OnInit {
     this.active = true;
   }
 
-  onSubmit() {
+  public onSubmit() {
     this.submitted = true;
     this.signup = this.signupForm.value;
   }

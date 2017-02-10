@@ -1,16 +1,13 @@
 import {
   Component,
-  OnInit,
-  ViewChild
+  OnInit
 } from '@angular/core';
-import {UIRouter} from 'ui-router-ng2';
-import {MdButton} from '@angular/material';
-import {AppMainPage} from '../app-main-page';
+import { UIRouter } from 'ui-router-ng2';
+import { AppMainPageComponent } from '../app-main-page';
 
 @Component({
   selector: 'app-navigation',
   styles: [`
-
     md-icon {
       margin: 0 8px;
     }
@@ -39,9 +36,9 @@ import {AppMainPage} from '../app-main-page';
     </div>
 `
 })
-export class AppNavigation implements OnInit {
+export class AppNavigationComponent implements OnInit {
 
-  appMenu = [
+  public appMenu = [
     {
       title: 'Home',
       state: 'app.home',
@@ -61,10 +58,11 @@ export class AppNavigation implements OnInit {
 
   constructor(
     public uiRouter: UIRouter,
-    public parent: AppMainPage
-  ) {}
+    public parent: AppMainPageComponent
+  ) {
+  }
 
   public ngOnInit() {
-    console.log('AppNavigation.ngOnInit');
+    // console.log('AppNavigationComponent.ngOnInit');
   }
 }

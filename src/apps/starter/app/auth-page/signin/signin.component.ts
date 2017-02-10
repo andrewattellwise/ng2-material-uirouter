@@ -3,29 +3,29 @@ import {
   OnInit
 } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {UIRouter} from 'ui-router-ng2';
+import { UIRouter } from 'ui-router-ng2';
 
-class SigninModel {
-  constructor(
-    public email: string,
-    public password: string,
-    public rememberMe?: boolean
-  ) {  }
-}
+interface SigninModel {
+  email: string;
+  password: string;
+  rememberMe?: boolean;
+};
 
 @Component({
   selector: 'signin',
-  styles: [`
-  `],
   templateUrl: 'signin.component.html'
 })
 export class SigninComponent implements OnInit {
 
-  signin = new SigninModel('', '');
-  active = false;
-  submitted = false;
+  public active = false;
+  public submitted = false;
+  public signinForm: FormGroup;
 
-  signinForm: FormGroup;
+  public signin: SigninModel = {
+    email: '',
+    password: '',
+    rememberMe: false
+  };
 
   constructor(
     public uiRouter: UIRouter,
@@ -34,19 +34,20 @@ export class SigninComponent implements OnInit {
   }
 
   public ngOnInit() {
-//    console.log('SigninComponent.ngOnInit');
+    // console.log('SigninComponent.ngOnInit');
+
     this.signinForm = this.formBuilder.group({
-      'email': [
+      email: [
         this.signin.email, [
           Validators.required
         ]
       ],
-      'password': [
+      password: [
         this.signin.password, [
           Validators.required
         ]
       ],
-      'rememberMe': [
+      rememberMe: [
         this.signin.rememberMe, []
       ]
     });
@@ -54,7 +55,7 @@ export class SigninComponent implements OnInit {
     this.active = true;
   }
 
-  onSubmit() {
+  public onSubmit() {
     this.submitted = true;
     this.signin = this.signinForm.value;
   }

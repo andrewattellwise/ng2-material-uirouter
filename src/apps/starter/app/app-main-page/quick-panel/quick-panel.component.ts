@@ -2,9 +2,8 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import {UIRouter} from 'ui-router-ng2';
-import {MdTab} from '@angular/material';
-import {AppMainPage} from '../app-main-page';
+import { UIRouter } from 'ui-router-ng2';
+import { AppMainPageComponent } from '../app-main-page';
 
 @Component({
   selector: 'app-quick-panel',
@@ -41,14 +40,14 @@ import {AppMainPage} from '../app-main-page';
 </div>
 `
 })
-export class AppQuickPanel implements OnInit {
+export class AppQuickPanelComponent implements OnInit {
 
   constructor(
     public uiRouter: UIRouter,
-    public parent: AppMainPage
+    public parent: AppMainPageComponent
   ) {}
 
   public ngOnInit() {
-    console.log('AppQuickPanel.ngOnInit');
+    // console.log('AppQuickPanelComponent.ngOnInit');
   }
 }

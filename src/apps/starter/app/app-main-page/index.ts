@@ -30,4 +30,3 @@ export class AppMainPageModule {
 */
 
 export * from './app-main-page';
-

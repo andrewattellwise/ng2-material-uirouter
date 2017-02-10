@@ -38,13 +38,13 @@ import { ENV_PROVIDERS } from './environment';
 import { UIROUTER_STATES } from './app.routes';
 // App is our top level component
 import { AppState, InternalStateType } from './app.service';
-import { AppMainPage } from './app-main-page';
+import { AppMainPageComponent } from './app-main-page';
 import { HomeComponent } from './app-main-page/views/home';
 import { AboutComponent } from './app-main-page/views/about';
-import { AppNavigation } from './app-main-page/navigation';
-import { AppToolbar } from './app-main-page/toolbar';
-import { AppQuickPanel } from './app-main-page/quick-panel';
-import { AuthPage, SigninComponent, SignupComponent } from './auth-page';
+import { AppNavigationComponent } from './app-main-page/navigation';
+import { AppToolbarComponent } from './app-main-page/toolbar';
+import { AppQuickPanelComponent } from './app-main-page/quick-panel';
+import { AuthPageComponent, SigninComponent, SignupComponent } from './auth-page';
 import { AppComponent } from './app.component';
 import { KsNgComponentsModule } from '../../../components/ng';
 
@@ -66,7 +66,7 @@ type StoreType = {
 // Enables tracing (check the console) of:
 // - TRANSITION transition start, redirect, success, error, ignored
 // - VIEWCONFIG ui-view component creation/destruction and viewconfig de/activation
-//trace.enable(Category.TRANSITION, /*Category.HOOK, Category.UIVIEW,*/ Category.VIEWCONFIG);
+// trace.enable(Category.TRANSITION, /*Category.HOOK, Category.UIVIEW,*/ Category.VIEWCONFIG);
 
 /**
  * Create your own configuration class (if necessary) for any root/feature/lazy module.
@@ -102,13 +102,13 @@ const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    AppMainPage,
-    AppToolbar,
-    AppNavigation,
-    AppQuickPanel,
+    AppMainPageComponent,
+    AppToolbarComponent,
+    AppNavigationComponent,
+    AppQuickPanelComponent,
     AboutComponent,
     HomeComponent,
-    AuthPage,
+    AuthPageComponent,
     SigninComponent,
     SignupComponent
   ],

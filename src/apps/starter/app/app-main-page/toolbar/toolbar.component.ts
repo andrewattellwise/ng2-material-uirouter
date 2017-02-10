@@ -2,14 +2,11 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import {UIRouter} from 'ui-router-ng2';
-import {MdToolbar, MdButton} from '@angular/material';
-import {AppMainPage} from '../app-main-page';
+import { UIRouter } from 'ui-router-ng2';
+import { AppMainPageComponent } from '../app-main-page';
 
 @Component({
   selector: 'app-toolbar',
-  styles: [`
-  `],
   template: `
 <md-toolbar class="ks-glow-z1 ks-page-toolbar ks-brand">
   <button md-icon-button aria-label="Navigation" (click)="parent.navContainer?.start?.open()">
@@ -22,14 +19,14 @@ import {AppMainPage} from '../app-main-page';
 </md-toolbar>
 `
 })
-export class AppToolbar implements OnInit {
+export class AppToolbarComponent implements OnInit {
 
   constructor(
     public uiRouter: UIRouter,
-    public parent: AppMainPage
+    public parent: AppMainPageComponent
   ) {}
 
   public ngOnInit() {
-    console.log('AppToolbar.ngOnInit');
+//    console.log('AppToolbarComponent.ngOnInit');
   }
 }
