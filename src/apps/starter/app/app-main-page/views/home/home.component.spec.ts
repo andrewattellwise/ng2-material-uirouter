@@ -1,11 +1,11 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { UIRouterModule, UIRouter } from 'ui-router-ng2';
 import {
   inject,
   async,
   TestBed,
   ComponentFixture
 } from '@angular/core/testing';
-import { Component } from '@angular/core';
 import {
   BaseRequestOptions,
   ConnectionBackend,
@@ -14,7 +14,8 @@ import {
 import { MockBackend } from '@angular/http/testing';
 
 // Load the implementations that should be tested
-import { AppState } from '../app.service';
+import { AppState } from '../../../app.service';
+import { AppMainPageComponent } from '../../app-main-page';
 import { HomeComponent } from './home.component';
 
 describe(`Home`, () => {
@@ -24,7 +25,15 @@ describe(`Home`, () => {
   // async beforeEach
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [HomeComponent],
+      declarations: [
+        // AppMainPageComponent,
+        HomeComponent
+      ],
+      /*
+      imports: [
+        UIRouterModule.forRoot({})
+      ],
+      */
       schemas: [NO_ERRORS_SCHEMA],
       providers: [
         BaseRequestOptions,
@@ -36,7 +45,18 @@ describe(`Home`, () => {
           },
           deps: [MockBackend, BaseRequestOptions]
         },
+        // provide a better mock
+        {
+          provide: UIRouter,
+          useValue: {
+          }
+        },
         AppState,
+        {
+          provide: AppMainPageComponent,
+          useValue: {
+          }
+        }
       ]
     })
     .compileComponents(); // compile template and css

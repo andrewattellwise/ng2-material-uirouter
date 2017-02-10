@@ -3,7 +3,7 @@ import {
   OnInit
 } from '@angular/core';
 import { UIRouter } from 'ui-router-ng2';
-import { AppMainPageComponent } from '../../app-main-page';
+// import { AppMainPageComponent } from '../../app-main-page';
 
 @Component({
   selector: 'app-about',
@@ -34,12 +34,12 @@ import { AppMainPageComponent } from '../../app-main-page';
 export class AboutComponent implements OnInit {
   constructor(
     public uiRouter: UIRouter,
-    private parent: AppMainPageComponent
+    // private parent: AppMainPageComponent
   ) {
     // console.log('AboutComponent');
   }
 
   public ngOnInit() {
-    // console.log('AboutComponent.ngOnInit');
+    console.log('AboutComponent.ngOnInit');
   }
 }

@@ -109,7 +109,6 @@ module.exports = function (env) {
             }),
           include: [helpers.root('src/apps/starter', 'styles')]
         },
-
       ]
 
     },

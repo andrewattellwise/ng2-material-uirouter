@@ -80,7 +80,10 @@ module.exports = function (options) {
           exclude: [
             // these packages have problems with their sourcemaps
             helpers.root('node_modules/rxjs'),
-            helpers.root('node_modules/@angular')
+            helpers.root('node_modules/@angular'),
+            helpers.root('node_modules/ui-router-core'),
+            helpers.root('node_modules/ui-router-ng2'),
+            helpers.root('node_modules/ui-router-rx')
           ]
         },
 
@@ -131,7 +134,18 @@ module.exports = function (options) {
          */
         {
           test: /\.css$/,
-          loader: ['to-string-loader', 'css-loader'],
+          use: ['to-string-loader', 'css-loader'],
+          exclude: [helpers.root('src/apps/starter/index.html')]
+        },
+
+        /*
+         * sass loader support for *.scss files (styles directory only)
+         * Loads external sass styles into the DOM, supports HMR
+         *
+         */
+        {
+          test: /\.scss$/,
+          use: ['to-string-loader', 'css-loader', 'sass-loader'],
           exclude: [helpers.root('src/apps/starter/index.html')]
         },
 
